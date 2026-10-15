@@ -1,6 +1,17 @@
 const StudentItem = ({ student, onDelete }) => {
     const { id, name, class: studentClass, score } = student;
-    const isGood = score >= 8;
+
+    let result = "Trượt môn";
+    let resultClass = "regular";
+
+    if (score >= 8) {
+        result = "Giỏi";
+        resultClass = "good";
+    } 
+    else if (score >= 5) {
+        result = "Khá";
+        resultClass = "average";
+    }
 
     return (
         <tr>
@@ -10,9 +21,7 @@ const StudentItem = ({ student, onDelete }) => {
                 <span className="score-value">{score.toFixed(1)}</span>
             </td>
             <td>
-                <span className={`result-badge ${isGood ? "good" : "regular"}`}>
-                    {isGood ? "Giỏi" : score < 5 ? "Trượt môn" : "Đạt"}
-            </span>
+                <span className={`result-badge ${resultClass}`}>{result}</span>
             </td>
             <td>
                 <button

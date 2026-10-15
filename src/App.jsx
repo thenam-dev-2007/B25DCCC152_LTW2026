@@ -3,9 +3,10 @@ import StudentList from "./components/StudentList";
 import "./App.css";
 
 const initialStudents = [
-  { id: 1, name: "Nguyễn Văn An", class: "D25CQCC01-B", score: 8.5 },
-  { id: 2, name: "Trần Thị Bình", class: "D25CQCC02-B", score: 9 },
-  { id: 3, name: "Lê Minh Châu", class: "D25CQCC01-B", score: 4.5 },
+  { id: 1, name: "Nguyễn Văn A", class: "D25CQCC01-B", score: 8.5 },
+  { id: 2, name: "Trần Thị B", class: "D25CQCC02-B", score: 9 },
+  { id: 3, name: "Lê Minh C", class: "D25CQCC01-B", score: 4.5 },
+  { id: 4, name: "Nguyễn Thị H", class: "D25CQCC01-B", score: 6.5 },
 ];
 
 const App = () => {
@@ -16,8 +17,14 @@ const App = () => {
   const [filter, setFilter] = useState("all");
   const [error, setError] = useState("");
 
+  const totalStudents = students.length;
+
+  const averageScore = totalStudents === 0 ? 0
+    : students.reduce((total, student) => total + student.score, 0) / totalStudents;
+
   const filteredStudents = students.filter((student) => {
     if (filter === "good") return student.score >= 8;
+    if (filter === "average") return student.score >= 5 && student.score < 8;
     if (filter === "failed") return student.score < 5;
     return true;
   });
@@ -62,6 +69,18 @@ const App = () => {
         <h1>Quản lý điểm sinh viên</h1>
         <p className="subtitle">Theo dõi danh sách và kết quả học tập của lớp.</p>
       </header>
+
+      <section className="stats" aria-label="Thống kê lớp">
+        <article className="stat-card">
+          <span className="stat-label">Tổng số sinh viên</span>
+          <strong>{totalStudents}</strong>
+        </article>
+
+        <article className="stat-card">
+          <span className="stat-label">Điểm trung bình toàn lớp</span>
+          <strong>{averageScore.toFixed(2)}</strong>
+        </article>
+      </section>
 
       <section className="panel">
         <div className="section-heading">
@@ -130,6 +149,7 @@ const App = () => {
             >
               <option value="all">Tất cả sinh viên</option>
               <option value="good">Loại Giỏi</option>
+              <option value="average">Loại Khá</option>
               <option value="failed">Trượt môn</option>
             </select>
           </label>
