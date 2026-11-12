@@ -1,38 +1,157 @@
-.App {
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f4f7f5;
+  color: #1f2933;
+  font-family: Arial, sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.navbar {
+  display: flex;
+  gap: 8px;
+  padding: 16px 24px;
+  background: #fff;
+  border-bottom: 1px solid #d7e0da;
+}
+
+.nav-link {
+  padding: 10px 14px;
+  border-radius: 6px;
+  color: #26352b;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background: #edf4ef;
+}
+
+.nav-link.active {
+  background: #176b3a;
+  color: #fff;
+}
+
+.app-main {
+  width: min(1100px, calc(100% - 32px));
+  margin: 28px auto;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+  margin: 20px 0;
+}
+
+.level-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  border: 1px solid #c8d3cb;
+  border-radius: 6px;
+}
+
+.filter-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.search-label {
+  display: grid;
+  gap: 6px;
+  min-width: min(320px, 100%);
+}
+
+.search-label input {
+  padding: 9px 10px;
+  border: 1px solid #aab8ae;
+  border-radius: 6px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+}
+
+th,
+td {
+  padding: 11px 12px;
+  border: 1px solid #d7e0da;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: #e9f0eb;
+}
+
+td a {
+  color: #145f34;
+}
+
+.bookmark-button {
+  border: 0;
+  background: transparent;
+  color: #176b3a;
+  cursor: pointer;
+  font-size: 1.35rem;
+}
+
+.empty-row {
+  padding: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.question-text {
+  margin-top: 24px;
+  font-size: 1.15rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.answer-list {
+  display: grid;
+  gap: 10px;
+  padding-left: 28px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.answer-option {
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.correct-answer {
+  background: #d9f2df;
+  color: #145c2d;
+}
+
+.detail-actions {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  gap: 10px;
+  margin-top: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.detail-actions button {
+  padding: 9px 14px;
+  border: 0;
+  border-radius: 6px;
+  background: #176b3a;
+  color: #fff;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.error-message {
+  color: #b42318;
 }
