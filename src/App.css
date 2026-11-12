@@ -155,3 +155,163 @@ td a {
 .error-message {
   color: #b42318;
 }
+
+.player-form,
+.bet-form {
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+  max-width: 420px;
+  margin-top: 20px;
+}
+
+.player-form input,
+.bet-form input {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid #aab8ae;
+  border-radius: 6px;
+}
+
+.player-form button,
+.bet-form button,
+.result-actions button {
+  padding: 10px 16px;
+  border: 0;
+  border-radius: 6px;
+  background: #176b3a;
+  color: #fff;
+  cursor: pointer;
+}
+
+.player-form button:disabled,
+.bet-form button:disabled {
+  background: #9aa8a0;
+  cursor: not-allowed;
+}
+
+.game-panel {
+  margin-top: 24px;
+  padding: 20px;
+  border: 1px solid #d7e0da;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.bet-form .error-message {
+  margin: 0;
+}
+
+.answer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.answer-button {
+  min-height: 58px;
+  padding: 12px;
+  border: 1px solid #aab8ae;
+  border-radius: 8px;
+  background: #fff;
+  color: #1f2933;
+  text-align: left;
+  cursor: pointer;
+}
+
+.answer-button:disabled {
+  cursor: default;
+}
+
+.answer-button.answer-correct {
+  border-color: #176b3a;
+  background: #d9f2df;
+  color: #145c2d;
+}
+
+.answer-button.answer-wrong {
+  border-color: #b42318;
+  background: #fde2df;
+  color: #8f1d15;
+}
+
+.timer {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.timer-urgent,
+.change-negative,
+.error-message {
+  color: #b42318;
+}
+
+.score-info p {
+  margin: 6px 0;
+}
+
+.change-positive {
+  color: #176b3a;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.change-negative {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.score-chart {
+  display: flex;
+  align-items: end;
+  gap: 12px;
+  min-height: 250px;
+  margin: 28px 0;
+  padding: 16px;
+  overflow-x: auto;
+  border-bottom: 1px solid #aab8ae;
+  background: #fff;
+}
+
+.chart-column {
+  display: flex;
+  flex: 1 0 70px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  gap: 6px;
+  min-height: 230px;
+}
+
+.chart-score,
+.chart-question {
+  font-size: 0.82rem;
+  white-space: nowrap;
+}
+
+.chart-bar {
+  width: 42px;
+  max-height: 200px;
+  border-radius: 5px 5px 0 0;
+}
+
+.chart-correct {
+  background: #27a45b;
+}
+
+.chart-wrong {
+  background: #d64545;
+}
+
+.result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 600px) {
+  .answer-grid {
+    grid-template-columns: 1fr;
+  }
+}
